@@ -1,0 +1,45 @@
+# Python / Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+.env
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Models and checkpoints (avoid pushing large weights to Git)
+models/global/*
+models/base/*
+local_training_output/
+*.safetensors
+*.bin
+*.pt
+*.h5
+
+# HuggingFace Cache
+.cache/
+huggingface/
+
+# IDE / Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# pytest / Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Flower / Database
+*.db
+*.sqlite
+*.sqlite3
+
+# uv specific
+uv.lock
