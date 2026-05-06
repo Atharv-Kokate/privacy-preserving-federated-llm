@@ -23,7 +23,13 @@ async def startup_event():
     # Load model when API starts
     inference_handler.load_model()
 
-@router.post("/medical_query", response_model=QueryResponse)
+@router.post("/api/reload_model")
+async def reload_model():
+    """Reloads the global model after training."""
+    inference_handler.load_model()
+    return {"message": "Model reloaded successfully."}
+
+@router.post("/api/medical_query", response_model=QueryResponse)
 async def process_query(req: QueryRequest):
     """Answers a medical query using the federated trained LLM."""
     

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Federated Healthcare LLM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <header class="glass-panel">
+        <div class="logo">
+            <div class="logo-icon"></div>
+            <h1>Privacy-Preserving Federated LLM</h1>
+        </div>
+        <p class="subtitle">Secure Healthcare Text Analytics</p>
+    </header>
+
+    <main class="container">
+        <!-- Left Column: Training & Data -->
+        <section class="left-col">
+            <!-- Data Upload -->
+            <div class="card glass-panel">
+                <h2>1. Upload Local Data</h2>
+                <p>Upload your local healthcare dataset (JSON) for federated fine-tuning. Data remains on your simulated local node.</p>
+                <form id="upload-form">
+                    <div class="file-drop-area" id="file-drop-area">
+                        <span class="file-msg">Drag & Drop or Click to Select JSON</span>
+                        <input type="file" id="data-file" accept=".json" required>
+                    </div>
+                    <button type="submit" class="btn primary-btn" id="upload-btn">
+                        <span class="btn-text">Upload Dataset</span>
+                        <div class="loader hidden"></div>
+                    </button>
+                </form>
+                <div id="upload-status" class="status-msg"></div>
+            </div>
+
+            <!-- Training Control -->
+            <div class="card glass-panel">
+                <h2>2. Federated Learning</h2>
+                <p>Initiate the federated training process. The global model will aggregate learnings securely.</p>
+                <button id="start-training-btn" class="btn secondary-btn" disabled>
+                    <span class="btn-text">Start Training</span>
+                    <div class="loader hidden"></div>
+                </button>
+                <div class="training-status-indicator">
+                    Status: <span id="training-status-text" class="badge idle">Idle</span>
+                </div>
+            </div>
+
+            <!-- Terminal Logs -->
+            <div class="card glass-panel terminal-card">
+                <h2>Training Logs</h2>
+                <div class="terminal" id="terminal-output">
+                    <div class="log-line text-muted">Waiting for training to start...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Inference -->
+        <section class="right-col">
+            <div class="card glass-panel inference-card">
+                <h2>Global Model Inference</h2>
+                <p>Test the aggregated global model. Ask a medical query.</p>
+                
+                <div class="chat-container">
+                    <div class="chat-history" id="chat-history">
+                        <div class="chat-msg assistant">
+                            <div class="avatar">AI</div>
+                            <div class="msg-content">Hello! I am the global federated model. How can I assist you today?</div>
+                        </div>
+                    </div>
+                    
+                    <form id="query-form" class="query-input-area">
+                        <textarea id="query-input" placeholder="Type your medical query here..." rows="3" required></textarea>
+                        <button type="submit" class="btn primary-btn icon-btn" id="send-query-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
